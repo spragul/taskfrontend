@@ -1,0 +1,10 @@
+/* signup */
+#signpageImage{
+    background-image: linear-gradient(to right, #64eb9bd1, #7bf553c4);
+    background-color: #cccccc;
+    height: 120vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }

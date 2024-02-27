@@ -13,26 +13,156 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+
+/* list task start */
+.total-background{
+  background-color: whitesmoke;
+}
+.list-container{
+  background-color: white;
+  margin: 20px;
+  padding: 10px;
+  width: auto;
+  height: 300px;
+  display:flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+}
+.list-card{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+
+
+}
+.list-header{
+  padding: 10px;
+  margin: 10px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.list-body{
+ width: 70%;
+ height: auto;
+}
+.task-icon{
+  width: 150px;
+  height: 150px;
+}
+.btn-container{
+ gap: 2px;
+}
+.details-btn{
+ background-color: rgb(82, 82, 233);
+ color: white;
+ padding: 2px;
+}
+
+.delete-btn{
+  background-color: crimson;
   color: white;
+  padding: 2px;
 }
 
-.App-link {
-  color: #61dafb;
+.edit-btn{
+  background-color: rgb(82, 82, 233);
+  color: white;
+  padding: 2px;
+}
+.notcomplete:hover{
+background-color:crimson;
+}
+.complete:hover{
+background-color: green;
+}
+.status-button button{
+  background-color: #007bff;
+color: black;
+padding: 2px;
+border-radius: 5px;
+border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@media screen and (max-width: 600px) {
+  .list-container{
+    background-color: white;
+    margin: 20px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+  
   }
-  to {
-    transform: rotate(360deg);
+  .list-card{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: auto;
+  
+  }
+  .list-body{
+    width: auto;
+    height: auto;
+   }
+  .body-message{
+    width: auto;
+    height: auto;
+  }
+  .btn-container{
+  margin-bottom: 10px;
   }
 }
+/* list task end */
+/* task Details start */
+.detail-container{
+  background-color: whitesmoke;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.detail-card{
+  padding: 10px;
+  width: 600px;
+  height: auto;
+  align-items: center;
+  background-color: white;
+}
+.detail-body{
+  font-size: large;
+  color: black
+}
+.details-heading{
+  color: darkblue;
+  font-size: larger;
+  font-style: italic;
+}
+.details-back{
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 600px) {
+  .detail-container{
+    padding: 5px;
+  }
+  .detail-card{
+    padding: 5px;
+    width: auto;
+    height: auto;
+    align-items: center;
+    background-color: white;
+  }
+}
+/* task Details End */
+/*Loading-start*/
+.loading-container{
+  width: auto;
+  height: 80vh;
+}
+/*loading-end*/
