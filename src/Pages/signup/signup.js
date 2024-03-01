@@ -1,14 +1,14 @@
 import React from "react";
 import "./signup.css";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-} from "mdb-react-ui-kit";
+// import {
+//   MDBBtn,
+//   MDBContainer,
+//   MDBRow,
+//   MDBCol,
+//   MDBCard,
+//   MDBCardBody,
+//   MDBInput,
+// } from "mdb-react-ui-kit";
 
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
@@ -18,9 +18,17 @@ import { URL } from "../../backend link";
 import { Link } from "react-router-dom";
 
 const userSchemaValidation = yup.object({
-  name: yup.string().required("Please fill in your Name"),
-  mobile: yup.string().required("Enter your Mobile Number"),
-  email: yup.string().required("Please fill in your Email"),
+  name: yup
+    .string()
+    .min(3, "Enter minmum 3 characters")
+    .required("Please fill in your Name"),
+  mobile: yup
+  .string()
+  .required()
+  .matches(/^[0-9]+$/, "Must be only digits")
+  .min(10, 'Must be exactly 10 digits')
+  .max(10, 'Must be exactly 10 digits'),
+  email: yup.string().email().required("Please fill in your Email"),
   password: yup.string().required("please write proper password"),
 });
 
@@ -65,109 +73,89 @@ export default function Signup() {
     });
 
   return (
-    <div id="signpageImage" className="bg-cl back">
-      <MDBContainer fluid style={{ height: "100vh", height: "auto" }}>
-        <MDBRow className="d-flex justify-content-center align-items-center h-100">
-          <MDBCol col="12">
-            <MDBCard
-              className="my-5 mx-auto"
-              style={{
-                borderRadius: "1rem",
-                maxWidth: "500px",
-                backgroundColor: "#8000385e",
-              }}
-            >
-              <MDBCardBody className="p-5 w-100 d-flex flex-column">
-                <h2 className="fw-bold mb-2 text-white text-center">Signup</h2>
-                <p className="text-white mb-3">Please Register Details</p>
-                <form onSubmit={handleSubmit} className="text-areas">
-                  <MDBInput
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.name}
-                    wrapperClass="mb-4 w-100"
-                    style={{ color: "white" }}
-                    label="Name"
-                    id="formControlLg"
-                    type="text"
-                    name="name"
-                    size="lg"
-                  />
-                  {touched.name && errors.name ? (
-                    <p style={{ color: "crimson" }}>{errors.name}</p>
-                  ) : (
-                    ""
-                  )}
-                  <MDBInput
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.mobile}
-                    wrapperClass="mb-4 w-100"
-                    style={{ color: "white" }}
-                    label="mobile"
-                    id="formControlLg"
-                    type="number"
-                    name="mobile"
-                    size="lg"
-                  />
-                  {touched.mobile && errors.mobile ? (
-                    <p style={{ color: "crimson" }}>{errors.mobile}</p>
-                  ) : (
-                    ""
-                  )}
-                  <MDBInput
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.email}
-                    wrapperClass="mb-4 w-100"
-                    style={{ color: "white" }}
-                    label="Email address"
-                    id="formControlLg"
-                    type="email"
-                    name="email"
-                    size="lg"
-                  />
-                  {touched.email && errors.email ? (
-                    <p style={{ color: "crimson" }}>{errors.email}</p>
-                  ) : (
-                    ""
-                  )}
-                  <MDBInput
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    wrapperClass="mb-4 w-100"
-                    style={{ color: "white" }}
-                    label="Password"
-                    id="formControlLg"
-                    type="password"
-                    name="password"
-                    size="lg"
-                  />
-                  {touched.password && errors.password ? (
-                    <p style={{ color: "crimson" }}>{errors.password}</p>
-                  ) : (
-                    ""
-                  )}
-
-                  <MDBBtn type="submit" size="lg">
-                    Signup
-                  </MDBBtn>
-                </form>
-                <hr></hr>
-                <div>
-                  <p>
-                    Already have an account?
-                    <Link to="/login" style={{ color: "white" }}>
-                      Login!
-                    </Link>
-                  </p>
-                </div>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+    <div className="sign-container">
+      <div style={{height:"auto"}} className="sign-cord">
+        <h1>Signup</h1>
+        <p>Please Register Details</p>
+        <form onSubmit={handleSubmit}>
+          <div className="sign-body">
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.name}
+              type="text"
+              name="name"
+              size="lg"
+            />
+            {touched.name && errors.name ? (
+              <span style={{ color: "crimson" }}>{errors.name}</span>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="sign-body">
+            <label htmlFor="mobile">Mobile</label>
+            <input
+              id="mobile"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              type="number"
+              name="mobile"
+              size="lg"
+            />
+            {touched.mobile && errors.mobile ? (
+              <p style={{ color: "crimson" }}>{errors.mobile}</p>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="sign-body">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
+              type="email"
+              name="email"
+              size="lg"
+            />
+            {touched.email && errors.email ? (
+              <p style={{ color: "crimson" }}>{errors.email}</p>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="sign-body">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.password}
+              type="password"
+              name="password"
+              size="lg"
+            />
+            {touched.password && errors.password ? (
+              <p style={{ color: "crimson" }}>{errors.password}</p>
+            ) : (
+              ""
+            )}
+          </div>
+          <p>
+            <button type="submit" className="button-sign">Sign UP</button>
+          </p>
+          <p className="sign-link">
+            Already have an account?
+            <Link to="/login" className="sign-link-btn">
+              Login!
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
