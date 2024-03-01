@@ -15,6 +15,20 @@
 
 
 /* list task start */
+.empty-container{
+  padding: 20px;
+  width: 100%;
+  height: 350px;
+}
+.empty-btn{
+  padding: 3px;
+  color: black;
+  background-color: #b9e68f;
+  border: 2px solide #007bff;
+}
+.empty-btn:hover{
+  background-color: #27e459;
+}
 .total-background{
   background-color: whitesmoke;
 }

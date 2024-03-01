@@ -16,7 +16,7 @@ function Navbartop({ children }) {
       <Navbar expand="lg" className="bg-success">
         <Container fluid>
           <Navbar.Brand>
-            <Link to="/">Task</Link>
+            <Link to="/" style={{color:"black"}}>Task</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
