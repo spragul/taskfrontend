@@ -130,7 +130,7 @@ export function Editform({ props }) {
               <div className="form-group">
                 <label>Starting Date</label>
                 <input
-                  type="date"
+                   type="datetime-local"
                   name="startingdate"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -148,7 +148,7 @@ export function Editform({ props }) {
               <div className="form-group">
                 <label>Ending Date</label>
                 <input
-                  type="date"
+                   type="datetime-local"
                   name="endingdate"
                   onChange={handleChange}
                   onBlur={handleBlur}

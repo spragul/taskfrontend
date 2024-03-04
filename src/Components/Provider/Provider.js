@@ -18,6 +18,7 @@ const AppProvider = ({ children }) => {
         });
         if (response) {
           if (response.data.rd) {
+            console.log(response.data.task)
             toast.success(response.data.message);
             setTask(response.data.task);
           }else{
