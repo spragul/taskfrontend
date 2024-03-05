@@ -1,14 +1,5 @@
 import React from "react";
 import "./signup.css";
-// import {
-//   MDBBtn,
-//   MDBContainer,
-//   MDBRow,
-//   MDBCol,
-//   MDBCard,
-//   MDBCardBody,
-//   MDBInput,
-// } from "mdb-react-ui-kit";
 
 import { useFormik } from "formik";
 import { toast } from "react-toastify";

@@ -19,8 +19,7 @@ function Signin() {
   const navigate = useNavigate();
   const log = async ({ loginuser }) => {
     try {
-      const response = await axios.post(`${URL}/user/login`,loginuser);
-      const data = await response.json();
+      const data = await axios.post(`${URL}/user/login`,loginuser);
       if (data.token) {
         console.log(data);
         sessionStorage.setItem("token", data.token);
