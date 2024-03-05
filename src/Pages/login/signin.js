@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { URL } from "../../backend link";
 import { useNavigate } from "react-router-dom";
 import { AppState } from "../../Components/Provider/Provider";
+import axios from "axios";
 
 const userSchemaValidation = yup.object({
   email: yup.string().required("Please fill in your Email"),
@@ -18,13 +19,7 @@ function Signin() {
   const navigate = useNavigate();
   const log = async ({ loginuser }) => {
     try {
-      const response = await fetch(`${URL}/user/login`, {
-        method: "POST",
-        body: JSON.stringify(loginuser),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(`${URL}/user/login`,loginuser);
       const data = await response.json();
       if (data.token) {
         console.log(data);
