@@ -18,17 +18,17 @@ function Signin() {
   const { refresh, setRefresh } = AppState();
   const navigate = useNavigate();
   const log = async ({ loginuser }) => {
+    console.log(loginuser);
     try {
-      const data = await axios.post(`${URL}/user/login`,loginuser);
-      if (data.token) {
-        console.log(data);
-        sessionStorage.setItem("token", data.token);
-        sessionStorage.setItem("myid", data.myid);
+      const data= await axios.post(`${URL}/user/login`,loginuser);
+      if (data.data.token) {
+        sessionStorage.setItem("token", data.data.token);
+        sessionStorage.setItem("myid", data.data.myid);
         navigate("/");
-        toast.success(data.message);
+        toast.success(data.data.message);
         setRefresh(refresh + 1);
       } else {
-        toast.error(data.message);
+        toast.error(data.data.message);
       }
     } catch (error) {
       console.log(error);

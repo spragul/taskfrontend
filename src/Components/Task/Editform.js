@@ -19,7 +19,6 @@ const taskSchemaValidation = yup.object({
 });
 
 export function Editform({ props }) {
-  console.log(props);
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
   const { task, setTask } = AppState();
@@ -60,7 +59,6 @@ export function Editform({ props }) {
       },
       validationSchema: taskSchemaValidation,
       onSubmit: (task1) => {
-        console.log({ task1 });
         edittask(task1);
       },
     });

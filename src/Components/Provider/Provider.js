@@ -30,7 +30,6 @@ const AppProvider = ({ children }) => {
         toast.error(error);
       }
     };
-    getDetails();
     if (token) {
       getDetails();
     }
