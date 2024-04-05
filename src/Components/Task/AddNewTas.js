@@ -36,6 +36,8 @@ function AddNewTask() {
       let response = await axios.post(`${URL}/task/createtask`, taskdetails, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      console.log(response);
+      toast(response.data.message)
       if (response.data.rd === true) {
         toast.success(response.data.message);
         const mydata = response.data.mytask;
@@ -47,6 +49,7 @@ function AddNewTask() {
     } catch (error) {
       console.log(error);
       toast.error(`Error ${error}`);
+      toast.error(error.response.data.message)
     }
   }
 
